@@ -1,4 +1,4 @@
-#library(readxl)
+library(readxl)
 
 #Reading in the excel files
 updatedSurvey2013 = read_excel("updatedSurvey2013.xlsx")
@@ -73,5 +73,60 @@ combinedSurvey$freqTwitter = sapply(combinedSurvey$freqTwitter, fixFreq)
 combinedSurvey$freqSnapchat = sapply(combinedSurvey$freqSnapchat, fixFreq)
 combinedSurvey$freqYoutube = sapply(combinedSurvey$freqYoutube, fixFreq)
 
+#change NULLs to NA
+combinedSurvey$marital[which(combinedSurvey$marital == "NULL")] = NA
+combinedSurvey$party[which(combinedSurvey$party == "NULL")] = NA
+combinedSurvey$demoOrRep[which(combinedSurvey$demoOrRep == "NULL")] = NA
+combinedSurvey$intAtHome[which(combinedSurvey$intAtHome == "NULL")] = NA
+combinedSurvey$intfreq[which(combinedSurvey$intfreq == "NULL")] = NA
+combinedSurvey$internetOpinionYou[which(combinedSurvey$internetOpinionYou == "NULL")] = NA
+combinedSurvey$internetOpinionSociety[which(combinedSurvey$internetOpinionSociety == "NULL")] = NA
+
+combinedSurvey$useSocialMedia[which(combinedSurvey$useSocialMedia == "NULL")] = NA
+combinedSurvey$useFacebook[which(combinedSurvey$useFacebook == "NULL")] = NA
+combinedSurvey$useLinkedin[which(combinedSurvey$useLinkedin == "NULL")] = NA
+combinedSurvey$usePinterest[which(combinedSurvey$usePinterest == "NULL")] = NA
+combinedSurvey$useTwitter[which(combinedSurvey$useTwitter == "NULL")] = NA
+combinedSurvey$useSnapchat[which(combinedSurvey$useSnapchat == "NULL")] = NA
+combinedSurvey$useInstagram[which(combinedSurvey$useInstagram == "NULL")] = NA
+combinedSurvey$useYoutube[which(combinedSurvey$useYoutube == "NULL")] = NA
+combinedSurvey$useWhatsap[which(combinedSurvey$useWhatsap == "NULL")] = NA
+
+combinedSurvey$freqLinkedin[which(combinedSurvey$freqLinkedin == "NULL")] = NA
+combinedSurvey$freqPinterest[which(combinedSurvey$freqPinterest == "NULL")] = NA
+combinedSurvey$freqFacebook[which(combinedSurvey$freqFacebook == "NULL")] = NA
+combinedSurvey$freqInstagram[which(combinedSurvey$freqInstagram == "NULL")] = NA
+combinedSurvey$freqTwitter[which(combinedSurvey$freqTwitter == "NULL")] = NA
+combinedSurvey$freqSnapchat[which(combinedSurvey$freqSnapchat == "NULL")] = NA
+combinedSurvey$freqYoutube[which(combinedSurvey$freqYoutube == "NULL")] = NA
+
+combinedSurvey$marital = as.factor(unlist(combinedSurvey$marital))
+combinedSurvey$party = as.factor(unlist(combinedSurvey$party))
+combinedSurvey$demoOrRep = as.factor(unlist(combinedSurvey$demoOrRep))
+combinedSurvey$intAtHome = as.factor(unlist(combinedSurvey$intAtHome))
+combinedSurvey$intfreq = as.factor(unlist(combinedSurvey$intfreq))
+combinedSurvey$internetOpinionYou = as.factor(unlist(combinedSurvey$internetOpinionYou))
+combinedSurvey$internetOpinionSociety = as.factor(unlist(combinedSurvey$internetOpinionSociety))
+
+combinedSurvey$useSocialMedia = as.factor(unlist(combinedSurvey$useSocialMedia))
+combinedSurvey$useFacebook = as.factor(unlist(combinedSurvey$useFacebook))
+combinedSurvey$useTwitter = as.factor(unlist(combinedSurvey$useTwitter))
+combinedSurvey$useLinkedin = as.factor(unlist(combinedSurvey$useLinkedin))
+combinedSurvey$usePinterest = as.factor(unlist(combinedSurvey$usePinterest))
+combinedSurvey$useInstagram = as.factor(unlist(combinedSurvey$useInstagram))
+combinedSurvey$useSnapchat = as.factor(unlist(combinedSurvey$useSnapchat))
+combinedSurvey$useYoutube = as.factor(unlist(combinedSurvey$useYoutube))
+combinedSurvey$useWhatsap = as.factor(unlist(combinedSurvey$useWhatsap))
+
+combinedSurvey$freqLinkedin = as.factor(unlist(combinedSurvey$freqLinkedin))
+combinedSurvey$freqPinterest = as.factor(unlist(combinedSurvey$freqPinterest))
+combinedSurvey$freqFacebook = as.factor(unlist(combinedSurvey$freqFacebook))
+combinedSurvey$freqInstagram = as.factor(unlist(combinedSurvey$freqInstagram))
+combinedSurvey$freqTwitter = as.factor(unlist(combinedSurvey$freqTwitter))
+combinedSurvey$freqSnapchat = as.factor(unlist(combinedSurvey$freqSnapchat))
+combinedSurvey$freqYoutube = as.factor(unlist(combinedSurvey$freqYoutube))
+
+
 #creating age groups
 combinedSurvey$ageGroups <- as.factor((unlist(lapply(combinedSurvey$age, ageGroupMaker))))
+
