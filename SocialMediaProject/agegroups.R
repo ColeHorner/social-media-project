@@ -1,6 +1,3 @@
-##issue is that an answer of 98 is dont know
-##and an answer for 99 is refused
-##this can skew data as it has not been dealt with
 #groups the ages in factors
 ageGroupMaker <- function(x) {
   if (x < 25)

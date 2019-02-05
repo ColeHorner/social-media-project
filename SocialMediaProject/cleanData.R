@@ -30,10 +30,6 @@ combinedSurvey = merge(combinedSurvey, updatedSurvey2018, all = TRUE)
 #calling the functions on the data sets to decode the numbers into
 #legible character strings
 
-#############################################
-##CAN'T TURN COLUMNS WITH NA's INTO FACTORS##
-#############################################
-
 #demographic information
 combinedSurvey$sex = as.factor(unlist(sapply(combinedSurvey$sex, fixSex)))
 combinedSurvey$educationLevel = as.factor(unlist(sapply(combinedSurvey$educationLevel, fixEduc)))
@@ -62,7 +58,7 @@ combinedSurvey$usePinterest = sapply(combinedSurvey$usePinterest, fixBasic)
 combinedSurvey$useInstagram = sapply(combinedSurvey$useInstagram, fixBasic)
 combinedSurvey$useSnapchat = sapply(combinedSurvey$useSnapchat, fixBasic)
 combinedSurvey$useYoutube = sapply(combinedSurvey$useYoutube, fixBasic)
-combinedSurvey$useWhatsap = sapply(combinedSurvey$useWhatsap, fixBasic)
+combinedSurvey$useWhatsapp = sapply(combinedSurvey$useWhatsapp, fixBasic)
 
 ##frequency of social media conversion
 combinedSurvey$freqLinkedin = sapply(combinedSurvey$freqLinkedin, fixFreq)
@@ -82,6 +78,7 @@ combinedSurvey$intfreq[which(combinedSurvey$intfreq == "NULL")] = NA
 combinedSurvey$internetOpinionYou[which(combinedSurvey$internetOpinionYou == "NULL")] = NA
 combinedSurvey$internetOpinionSociety[which(combinedSurvey$internetOpinionSociety == "NULL")] = NA
 
+#change NULLS to NA
 combinedSurvey$useSocialMedia[which(combinedSurvey$useSocialMedia == "NULL")] = NA
 combinedSurvey$useFacebook[which(combinedSurvey$useFacebook == "NULL")] = NA
 combinedSurvey$useLinkedin[which(combinedSurvey$useLinkedin == "NULL")] = NA
@@ -90,8 +87,9 @@ combinedSurvey$useTwitter[which(combinedSurvey$useTwitter == "NULL")] = NA
 combinedSurvey$useSnapchat[which(combinedSurvey$useSnapchat == "NULL")] = NA
 combinedSurvey$useInstagram[which(combinedSurvey$useInstagram == "NULL")] = NA
 combinedSurvey$useYoutube[which(combinedSurvey$useYoutube == "NULL")] = NA
-combinedSurvey$useWhatsap[which(combinedSurvey$useWhatsap == "NULL")] = NA
+combinedSurvey$useWhatsapp[which(combinedSurvey$useWhatsapp == "NULL")] = NA
 
+#change NULLS to NA
 combinedSurvey$freqLinkedin[which(combinedSurvey$freqLinkedin == "NULL")] = NA
 combinedSurvey$freqPinterest[which(combinedSurvey$freqPinterest == "NULL")] = NA
 combinedSurvey$freqFacebook[which(combinedSurvey$freqFacebook == "NULL")] = NA
@@ -100,6 +98,7 @@ combinedSurvey$freqTwitter[which(combinedSurvey$freqTwitter == "NULL")] = NA
 combinedSurvey$freqSnapchat[which(combinedSurvey$freqSnapchat == "NULL")] = NA
 combinedSurvey$freqYoutube[which(combinedSurvey$freqYoutube == "NULL")] = NA
 
+#turns columns into factors
 combinedSurvey$marital = as.factor(unlist(combinedSurvey$marital))
 combinedSurvey$party = as.factor(unlist(combinedSurvey$party))
 combinedSurvey$demoOrRep = as.factor(unlist(combinedSurvey$demoOrRep))
@@ -108,6 +107,7 @@ combinedSurvey$intfreq = as.factor(unlist(combinedSurvey$intfreq))
 combinedSurvey$internetOpinionYou = as.factor(unlist(combinedSurvey$internetOpinionYou))
 combinedSurvey$internetOpinionSociety = as.factor(unlist(combinedSurvey$internetOpinionSociety))
 
+#turns columns into factors
 combinedSurvey$useSocialMedia = as.factor(unlist(combinedSurvey$useSocialMedia))
 combinedSurvey$useFacebook = as.factor(unlist(combinedSurvey$useFacebook))
 combinedSurvey$useTwitter = as.factor(unlist(combinedSurvey$useTwitter))
@@ -116,8 +116,9 @@ combinedSurvey$usePinterest = as.factor(unlist(combinedSurvey$usePinterest))
 combinedSurvey$useInstagram = as.factor(unlist(combinedSurvey$useInstagram))
 combinedSurvey$useSnapchat = as.factor(unlist(combinedSurvey$useSnapchat))
 combinedSurvey$useYoutube = as.factor(unlist(combinedSurvey$useYoutube))
-combinedSurvey$useWhatsap = as.factor(unlist(combinedSurvey$useWhatsap))
+combinedSurvey$useWhatsapp = as.factor(unlist(combinedSurvey$useWhatsapp))
 
+#turns columns into factors
 combinedSurvey$freqLinkedin = as.factor(unlist(combinedSurvey$freqLinkedin))
 combinedSurvey$freqPinterest = as.factor(unlist(combinedSurvey$freqPinterest))
 combinedSurvey$freqFacebook = as.factor(unlist(combinedSurvey$freqFacebook))
@@ -125,7 +126,6 @@ combinedSurvey$freqInstagram = as.factor(unlist(combinedSurvey$freqInstagram))
 combinedSurvey$freqTwitter = as.factor(unlist(combinedSurvey$freqTwitter))
 combinedSurvey$freqSnapchat = as.factor(unlist(combinedSurvey$freqSnapchat))
 combinedSurvey$freqYoutube = as.factor(unlist(combinedSurvey$freqYoutube))
-
 
 #creating age groups
 combinedSurvey$ageGroups <- as.factor((unlist(lapply(combinedSurvey$age, ageGroupMaker))))

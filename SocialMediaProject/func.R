@@ -77,8 +77,3 @@ fixDemOrRep = function(x){
 fixIntOpin = function(x){
   switch(x, "good thing", "bad thing", "some of both", 4,5,6,7, "dont know", "refused")
 }
-
-#fixes nulls
-fixNulls = function(x){
-  x[which(x == "NULL")] = NA
-}
